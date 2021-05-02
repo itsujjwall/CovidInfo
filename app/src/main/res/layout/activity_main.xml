@@ -2,6 +2,7 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_swipe_refresh_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -174,7 +175,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:gravity="center"
-                            android:text="12345"
+                            android:text=""
                             android:textColor="@android:color/black"
                             android:textSize="24sp" />
 
@@ -184,7 +185,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="25dp"
                             android:gravity="center"
-                            android:text="+2222"
+                            android:text=""
                             android:textColor="@color/yellow"
                             android:textSize="16sp" />
 
@@ -225,7 +226,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:gravity="center"
-                            android:text="12345"
+                            android:text=""
                             android:textColor="@android:color/black"
                             android:textSize="24sp" />
 
@@ -235,7 +236,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="25dp"
                             android:gravity="center"
-                            android:text="+2222"
+                            android:text=""
                             android:textColor="@color/blue"
                             android:textSize="16sp" />
 
@@ -278,7 +279,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:gravity="center"
-                            android:text="12345"
+                            android:text=""
                             android:textColor="@android:color/black"
                             android:textSize="24sp" />
 
@@ -288,7 +289,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="25dp"
                             android:gravity="center"
-                            android:text="+2222"
+                            android:text=""
                             android:textColor="@color/green"
                             android:textSize="16sp" />
 
@@ -329,7 +330,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:gravity="center"
-                            android:text="12345"
+                            android:text=""
                             android:textColor="@android:color/black"
                             android:textSize="24sp" />
 
@@ -339,7 +340,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="25dp"
                             android:gravity="center"
-                            android:text="+2222"
+                            android:text=""
                             android:textColor="@color/red"
                             android:textSize="16sp" />
 
@@ -382,7 +383,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:gravity="center"
-                            android:text="12345"
+                            android:text=""
                             android:textColor="@android:color/black"
                             android:textSize="24sp" />
 
@@ -392,7 +393,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="25dp"
                             android:gravity="center"
-                            android:text="+2222"
+                            android:text=""
                             android:textColor="@color/pink"
                             android:textSize="16sp" />
 
@@ -433,7 +434,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:gravity="center"
-                            android:text="07:15 PM"
+                            android:text=""
                             android:textColor="@android:color/black"
                             android:textSize="24sp" />
 
@@ -443,7 +444,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="25dp"
                             android:gravity="center"
-                            android:text="17 may 2020"
+                            android:text=""
                             android:textColor="@android:color/black"
                             android:textSize="16sp" />
 
@@ -463,6 +464,7 @@
                     app:cardElevation="6dp">
 
                     <LinearLayout
+                        android:id="@+id/activity_main_statewise_lin"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="?android:attr/selectableItemBackground"
@@ -501,6 +503,7 @@
                     app:cardElevation="6dp">
 
                     <LinearLayout
+                        android:id="@+id/activity_main_world_data_lin"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="?android:attr/selectableItemBackground"
