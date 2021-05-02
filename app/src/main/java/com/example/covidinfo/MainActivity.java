@@ -6,6 +6,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -51,14 +52,19 @@ public class MainActivity extends AppCompatActivity {
             str_death, str_death_new, str_tests, str_tests_new, str_last_update_time;
     private int int_active_new;
     //5
-
     private ProgressDialog progressDialog;
-
+    //6
+    private boolean doubleBackToExitPressedOnce = false;
+    private Toast backPressToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //setting up the titlebar text
+        getSupportActionBar().setTitle("CovidInfo (India)");
 
         //initialise
         init();
@@ -78,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         lin_world_data.setOnClickListener(v -> {
-            Toast.makeText(this, "World Data Clicked", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "World Data Clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this, WorldDataActivity.class));
         });
     }
 
@@ -255,7 +262,30 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "StateWise Data Clicked", Toast.LENGTH_SHORT).show();
         } else if (item.getItemId() == R.id.menu_country_wise) {
             Toast.makeText(this, "Country Wise Data Clicked", Toast.LENGTH_SHORT).show();
+        } else if (item.getItemId() == R.id.menu_world) {
+//            Toast.makeText(this, "Country Wise Data Clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this,WorldDataActivity.class));
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            backPressToast.cancel();
+            super.onBackPressed();
+            return;
+        }
+        doubleBackToExitPressedOnce = true;
+        backPressToast = Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT);
+        backPressToast.show();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
     }
 }

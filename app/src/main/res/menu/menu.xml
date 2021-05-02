@@ -7,7 +7,9 @@
         android:title="About"
         app:showAsAction="always"/>
     <item android:id="@+id/menu_state_wise"
-        android:title="State Wise Data" />
+        android:title="State-Wise Data" />
     <item android:id="@+id/menu_country_wise"
-        android:title="Country Wise Data" />
+        android:title="Country-Wise Data" />
+    <item android:id="@+id/menu_world"
+        android:title="World Data" />
 </menu>
