@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         lin_state_data.setOnClickListener(v -> {
-            Toast.makeText(this, "State Data Clicked", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "State Data Clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this,StateWiseActivity.class));
         });
 
         lin_world_data.setOnClickListener(v -> {
@@ -142,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     //Setting text in the textview
-                                    tv_confirmed.setText(NumberFormat.getInstance().format(Integer.parseInt(str_confirmed)));
+                                    tv_confirmed.setText(NumberFormat.getInstance().format(Long.parseLong(str_confirmed)));
                                     tv_confirmed_new.setText("+" + NumberFormat.getInstance().format(Integer.parseInt(str_confirmed_new)));
 
                                     tv_active.setText(NumberFormat.getInstance().format(Integer.parseInt(str_active)));
@@ -151,13 +152,13 @@ public class MainActivity extends AppCompatActivity {
                                             - (Integer.parseInt(str_recovered_new) + Integer.parseInt(str_death_new));
                                     tv_active_new.setText("+" + NumberFormat.getInstance().format(int_active_new));
 
-                                    tv_recovered.setText(NumberFormat.getInstance().format(Integer.parseInt(str_recovered)));
+                                    tv_recovered.setText(NumberFormat.getInstance().format(Long.parseLong(str_recovered)));
                                     tv_recovered_new.setText("+" + NumberFormat.getInstance().format(Integer.parseInt(str_recovered_new)));
 
                                     tv_death.setText(NumberFormat.getInstance().format(Integer.parseInt(str_death)));
                                     tv_death_new.setText("+" + NumberFormat.getInstance().format(Integer.parseInt(str_death_new)));
 
-                                    tv_tests.setText(NumberFormat.getInstance().format(Integer.parseInt(str_tests)));
+                                    tv_tests.setText(NumberFormat.getInstance().format(Long.parseLong(str_tests)));
                                     tv_tests_new.setText("+" + NumberFormat.getInstance().format(Integer.parseInt(str_tests_new)));
 
                                     tv_date.setText(FormatDate(str_last_update_time, 1));

@@ -47,6 +47,8 @@ public class WorldDataActivity extends AppCompatActivity {
             str_death, str_death_new, str_tests;
     private int int_active_new = 0;
 
+    //4
+    private MainActivity  activity= new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,22 +83,11 @@ public class WorldDataActivity extends AppCompatActivity {
 
 
 
-    public void ShowDialog(Context context) {
-        //setting up progress dialog
-        progressDialog = new ProgressDialog(context);
-        progressDialog.show();
-        progressDialog.setContentView(R.layout.progress_dialog);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-    }
 
-    public void DismissDialog() {
-        progressDialog.dismiss();
-    }
 
     private void FetchWorldData() {
         //show dialog
-        ShowDialog(this);
+        activity.ShowDialog(this);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         String apiUrl = "https://corona.lmao.ninja/v2/all";
@@ -147,7 +138,7 @@ public class WorldDataActivity extends AppCompatActivity {
 
                                 pieChart.startAnimation();
 
-                                DismissDialog();
+                                activity.DismissDialog();
 
                             },1000);
                         }
