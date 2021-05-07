@@ -1,5 +1,6 @@
 package com.example.covidinfo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.android.volley.Request;
@@ -165,5 +167,13 @@ public class StateWiseActivity extends AppCompatActivity {
         stateWiseModelArrayList = new ArrayList<>();
         stateWiseAdapter = new StateWiseAdapter(StateWiseActivity.this, stateWiseModelArrayList);
         rv_state_wise.setAdapter(stateWiseAdapter);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 }
