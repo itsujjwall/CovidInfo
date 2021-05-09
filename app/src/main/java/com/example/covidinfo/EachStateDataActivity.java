@@ -66,10 +66,10 @@ public class EachStateDataActivity extends AppCompatActivity {
         lin_district.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(EachStateDataActivity.this, "Select District of "+str_stateName, Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(EachStateDataActivity.this, DistrictWiseDataActivity.class);
-//                intent.putExtra(STATE_NAME, str_stateName);
-//                startActivity(intent);
+                //Toast.makeText(EachStateDataActivity.this, "Select District of "+str_stateName, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(EachStateDataActivity.this, DistrictWiseDataActivity.class);
+                intent.putExtra(STATE_NAME, str_stateName);
+                startActivity(intent);
             }
         });
     }

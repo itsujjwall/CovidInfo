@@ -1,6 +1,8 @@
 package com.example.covidinfo;
 
 public class Constants {
+
+    //for states
     public static final String STATE_NAME = "stateName";
     public static final String STATE_CONFIRMED = "stateConfirmed";
     public static final String STATE_CONFIRMED_NEW = "stateConfirmedNew";
@@ -12,5 +14,15 @@ public class Constants {
     public static final String STATE_LAST_UPDATE = "stateLastUpdate";
 
 
+    //for disticts
+    //District Data Keys
+    public static final String DISTRICT_NAME = "districtName";
+    public static final String DISTRICT_CONFIRMED = "districtConfirmed";
+    public static final String DISTRICT_CONFIRMED_NEW = "districtConfirmedNew";
+    public static final String DISTRICT_ACTIVE = "districtActive";
+    public static final String DISTRICT_DEATH = "districtDeath";
+    public static final String DISTRICT_DEATH_NEW = "districtDeathNew";
+    public static final String DISTRICT_RECOVERED = "districtRecovered";
+    public static final String DISTRICT_RECOVERED_NEW = "districtRecoveredNew";
 
 }

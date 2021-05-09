@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidInfo">
-        <activity android:name=".EachStateDataActivity"></activity>
+        <activity android:name=".EachDistrictDataActivity"></activity>
+        <activity android:name=".DistrictWiseDataActivity" />
+        <activity android:name=".EachStateDataActivity" />
         <activity android:name=".StateWiseActivity" />
         <activity android:name=".WorldDataActivity" />
         <activity android:name=".MainActivity">

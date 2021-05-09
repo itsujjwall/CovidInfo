@@ -2,6 +2,10 @@ package com.example.covidinfo.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +21,8 @@ import com.example.covidinfo.R;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.example.covidinfo.Constants.STATE_ACTIVE;
 import static com.example.covidinfo.Constants.STATE_CONFIRMED;
@@ -31,6 +37,8 @@ import static com.example.covidinfo.Constants.STATE_RECOVERED_NEW;
 public class StateWiseAdapter extends RecyclerView.Adapter<StateWiseAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<StateWiseModel> stateWiseModelArrayList;
+    private String searchText = "";
+    private SpannableStringBuilder sb;
 
     public StateWiseAdapter(Context mContext, ArrayList<StateWiseModel> stateWiseModelArrayList) {
         this.mContext = mContext;
@@ -45,12 +53,27 @@ public class StateWiseAdapter extends RecyclerView.Adapter<StateWiseAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder,final int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         StateWiseModel currentItem = stateWiseModelArrayList.get(position);
         String stateName = currentItem.getState();
         String stateTotal = currentItem.getConfirmed();
         holder.tv_stateTotalCases.setText(NumberFormat.getInstance().format(Long.parseLong(stateTotal)));
-        holder.tv_stateName.setText(stateName);
+        //holder.tv_stateName.setText(stateName);
+        if (searchText.length() > 0) {
+            //color your text here
+            sb = new SpannableStringBuilder(stateName);
+            Pattern word = Pattern.compile(searchText.toLowerCase());
+            Matcher match = word.matcher(stateName.toLowerCase());
+            while (match.find()) {
+                ForegroundColorSpan fcs = new ForegroundColorSpan(Color.rgb(52, 195, 235)); //specify color here
+                sb.setSpan(fcs, match.start(), match.end(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+            }
+            holder.tv_stateName.setText(sb);
+
+        } else {
+            holder.tv_stateName.setText(stateName);
+        }
+
 
         holder.lin_state_wise.setOnClickListener(v -> {
             StateWiseModel clickedItem = stateWiseModelArrayList.get(position);
@@ -73,13 +96,13 @@ public class StateWiseAdapter extends RecyclerView.Adapter<StateWiseAdapter.View
 
     public void filterList(ArrayList<StateWiseModel> filteredList, String text) {
         stateWiseModelArrayList = filteredList;
-        //this.searchText = text;
+        this.searchText = text;
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return stateWiseModelArrayList ==null ? 0 : stateWiseModelArrayList.size();
+        return stateWiseModelArrayList == null ? 0 : stateWiseModelArrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
