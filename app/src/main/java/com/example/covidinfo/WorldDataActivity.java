@@ -76,8 +76,8 @@ public class WorldDataActivity extends AppCompatActivity {
         });
 
         lin_countrywise.setOnClickListener(v -> {
-            Toast.makeText(WorldDataActivity.this, "Country wise data", Toast.LENGTH_SHORT).show();
-//            startActivity(new Intent(WorldDataActivity.this, CountryWiseDataActivity.class));
+            //Toast.makeText(WorldDataActivity.this, "Country wise data", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(WorldDataActivity.this, CountryWiseDataActivity.class));
         });
     }
 
