@@ -133,6 +133,8 @@ public class CountryWiseDataActivity extends AppCompatActivity {
                             //adding data to our arraylist
                             countryWiseModelArrayList.add(countryWiseModel);
                         }
+
+                        //for sorting country in desending order so that the country having higher no. of cases is at the top
                         Collections.sort(countryWiseModelArrayList, new Comparator<CountryWiseModel>() {
                             @Override
                             public int compare(CountryWiseModel o1, CountryWiseModel o2) {
@@ -143,6 +145,8 @@ public class CountryWiseDataActivity extends AppCompatActivity {
                                 }
                             }
                         });
+
+
                         Handler makeDelay = new Handler();
                         makeDelay.postDelayed(new Runnable() {
                             @Override

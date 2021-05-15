@@ -1,6 +1,7 @@
 package com.example.covidinfo.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.covidinfo.EachCountryDataActivity;
 import com.example.covidinfo.Models.CountryWiseModel;
 import com.example.covidinfo.R;
 
@@ -25,6 +27,16 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static com.example.covidinfo.Constants.COUNTRY_ACTIVE;
+import static com.example.covidinfo.Constants.COUNTRY_CONFIRMED;
+import static com.example.covidinfo.Constants.COUNTRY_DECEASED;
+import static com.example.covidinfo.Constants.COUNTRY_FLAGURL;
+import static com.example.covidinfo.Constants.COUNTRY_NAME;
+import static com.example.covidinfo.Constants.COUNTRY_NEW_CONFIRMED;
+import static com.example.covidinfo.Constants.COUNTRY_NEW_DECEASED;
+import static com.example.covidinfo.Constants.COUNTRY_RECOVERED;
+import static com.example.covidinfo.Constants.COUNTRY_TESTS;
 
 public class CountryWiseAdapter extends RecyclerView.Adapter<CountryWiseAdapter.MyViewHolder> {
 
@@ -85,6 +97,22 @@ public class CountryWiseAdapter extends RecyclerView.Adapter<CountryWiseAdapter.
 
         Glide.with(mContext).load(countryFlag).diskCacheStrategy(DiskCacheStrategy.DATA).into(holder.iv_flagImage);
 
+        holder.lin_country.setOnClickListener(v -> {
+            CountryWiseModel clickedItem = countryWiseModelArrayList.get(position);
+            Intent perCountryIntent = new Intent(mContext, EachCountryDataActivity.class);
+
+            perCountryIntent.putExtra(COUNTRY_NAME, clickedItem.getCountry());
+            perCountryIntent.putExtra(COUNTRY_CONFIRMED, clickedItem.getConfirmed());
+            perCountryIntent.putExtra(COUNTRY_ACTIVE, clickedItem.getActive());
+            perCountryIntent.putExtra(COUNTRY_RECOVERED, clickedItem.getRecovered());
+            perCountryIntent.putExtra(COUNTRY_DECEASED, clickedItem.getDeceased());
+            perCountryIntent.putExtra(COUNTRY_NEW_CONFIRMED, clickedItem.getNewConfirmed());
+            perCountryIntent.putExtra(COUNTRY_NEW_DECEASED, clickedItem.getNewDeceased());
+            perCountryIntent.putExtra(COUNTRY_TESTS, clickedItem.getTests());
+            perCountryIntent.putExtra(COUNTRY_FLAGURL, clickedItem.getFlag());
+
+            mContext.startActivity(perCountryIntent);
+        });
     }
 
     @Override

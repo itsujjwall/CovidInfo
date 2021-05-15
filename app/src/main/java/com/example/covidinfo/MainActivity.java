@@ -260,9 +260,11 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.menu_about) {
             Toast.makeText(this, "About menu icon Clicked", Toast.LENGTH_SHORT).show();
         } else if (item.getItemId() == R.id.menu_state_wise) {
-            Toast.makeText(this, "StateWise Data Clicked", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "StateWise Data Clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this,StateWiseActivity.class));
         } else if (item.getItemId() == R.id.menu_country_wise) {
-            Toast.makeText(this, "Country Wise Data Clicked", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Country Wise Data Clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this,CountryWiseDataActivity.class));
         } else if (item.getItemId() == R.id.menu_world) {
 //            Toast.makeText(this, "Country Wise Data Clicked", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(MainActivity.this,WorldDataActivity.class));
