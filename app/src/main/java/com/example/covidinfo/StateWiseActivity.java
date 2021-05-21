@@ -112,10 +112,13 @@ public class StateWiseActivity extends AppCompatActivity {
                         stateWiseModelArrayList.clear();
 
                         for (int i = 1; i < jsonArray.length()-1; i++) {
+
                             JSONObject statewise = jsonArray.getJSONObject(i);
+
 
                             //After fetching, storing the data into strings
                             str_state = statewise.getString("state");
+
 
                             str_confirmed = statewise.getString("confirmed");
                             str_confirmed_new = statewise.getString("deltaconfirmed");
